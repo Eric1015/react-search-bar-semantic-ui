@@ -39,9 +39,12 @@ class SearchBar extends React.Component {
             results: [],
             value: ""
         };
+        this.onSearchBarChange = this.onSearchBarChange.bind(this);
+        this.assignItems = this.assignItems.bind(this);
     }
 
-    onSearchBarChange = (value) => {
+    onSearchBarChange(event) {
+        let value = event.target.value;
         this.setState({ loading: true, value: value });
         let results = [];
         value = value.split(" ").join("");
@@ -52,6 +55,7 @@ class SearchBar extends React.Component {
                 let currIndex = 0;
                 let matched = true;
                 let str = item.title;
+                console.log(item);
                 if (value.length <= str.length) {
                     for (let i = 0; i < value.length; i++) {
                         if (currIndex > str.length - 1) {
@@ -81,7 +85,7 @@ class SearchBar extends React.Component {
         this.setState({ loading: false, results: results });
     }
 
-    assignItems = () => {
+    assignItems() {
         let result = {
             a: [],
             b: [],
@@ -111,7 +115,7 @@ class SearchBar extends React.Component {
             z: [],
             other: []
         };
-        for (let elem of props.items) {
+        for (let elem of this.props.items) {
             let key = elem.title.substring(0, 1);
             result.hasOwnProperty(key)? result[key].push(elem) : result["other"].push(elem);
         }
@@ -129,8 +133,8 @@ class SearchBar extends React.Component {
                 loading={this.state.loading}
                 onSearchChange={this.onSearchBarChange}
                 onResultSelect={this.props.onResultSelect}
-                results={results}
-                value={value}
+                results={this.state.results}
+                value={this.state.value}
                 fluid
                 resultRenderer={this.props.customComponent}
             />
