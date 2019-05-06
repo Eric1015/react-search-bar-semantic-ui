@@ -7,7 +7,7 @@ import SearchBar from './components/SearchBar';
 const SearchBarContainer = (props) => {
     return (
         <SearchBar
-            items={props.items? props.items : []}
+            data={props.data? props.data : []}
             onResultSelect={props.onResultSelect ? props.onResultSelect : (e, { value }) => { console.log(value); }}
             customComponent={props.customComponent ? props.customComponent : Result}
         />
@@ -33,7 +33,7 @@ const Result = (props) => {
 }
 
 SearchBarContainer.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string.isRequired})),
+    data: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string.isRequired})),
     onResultSelect: PropTypes.func,
     customComponent: PropTypes.object
 }

@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
     constructor() {
         super();
         this.state = {
-            items: {
+            data: {
                 a: [],
                 b: [],
                 c: [],
@@ -40,7 +40,7 @@ class SearchBar extends React.Component {
             value: ""
         };
         this.onSearchBarChange = this.onSearchBarChange.bind(this);
-        this.assignItems = this.assignItems.bind(this);
+        this.assignData = this.assignData.bind(this);
     }
 
     onSearchBarChange(event) {
@@ -50,7 +50,7 @@ class SearchBar extends React.Component {
         value = value.split(" ").join("");
         if (value.length !== 0) {
             let key = value.substring(0, 1);
-            let items = this.state.items.hasOwnProperty(key)? this.state.items[key] : this.state.items["other"];
+            let items = this.state.data.hasOwnProperty(key)? this.state.data[key] : this.state.data["other"];
             for (let item of items) {
                 let currIndex = 0;
                 let matched = true;
@@ -85,7 +85,7 @@ class SearchBar extends React.Component {
         this.setState({ loading: false, results: results });
     }
 
-    assignItems() {
+    assignData() {
         let result = {
             a: [],
             b: [],
@@ -115,15 +115,15 @@ class SearchBar extends React.Component {
             z: [],
             other: []
         };
-        for (let elem of this.props.items) {
+        for (let elem of this.props.data) {
             let key = elem.title.substring(0, 1);
             result.hasOwnProperty(key)? result[key].push(elem) : result["other"].push(elem);
         }
-        this.setState({items: result});
+        this.setState({data: result});
     }
 
     componentDidMount() {
-        this.assignItems();
+        this.assignData();
     }
 
     render() {
@@ -143,7 +143,7 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string.isRequired})).isRequired,
+    data: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string.isRequired})).isRequired,
     onResultSelect: PropTypes.func.isRequired,
     customComponent: PropTypes.object.isRequired
 }
