@@ -1,6 +1,6 @@
 {
     "name": "react-search-bar-semantic-ui",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "This is a search bar component with built-in searching functions and make use of Semantic UI React for UI.",
     "main": "build/index.js",
     "peerDependencies": {
