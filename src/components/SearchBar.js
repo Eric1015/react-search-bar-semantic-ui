@@ -54,8 +54,8 @@ class SearchBar extends React.Component {
             for (let item of items) {
                 let currIndex = 0;
                 let matched = true;
+                if (!item.hasOwnProperty("title")) continue;
                 let str = item.title;
-                console.log(item);
                 if (value.length <= str.length) {
                     for (let i = 0; i < value.length; i++) {
                         if (currIndex > str.length - 1) {
@@ -116,8 +116,10 @@ class SearchBar extends React.Component {
             other: []
         };
         for (let elem of this.props.data) {
-            let key = elem.title.charAt(0).toLowerCase();
-            result.hasOwnProperty(key)? result[key].push(elem) : result["other"].push(elem);
+            if (elem.hasOwnProperty("title")) {
+                let key = elem.title.charAt(0).toLowerCase();
+                result.hasOwnProperty(key)? result[key].push(elem) : result["other"].push(elem);
+            }
         }
         this.setState({data: result});
     }
