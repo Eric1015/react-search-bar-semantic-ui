@@ -36,6 +36,8 @@ export default App;
 
 The demo project can be found [here](https://react-search-bar-sem-ui-demo.herokuapp.com).
 
+Its source code can be found [here](https://github.com/Eric1015/search-app).
+
 The demo project uses the database to retrieve data and passes that to the <code>SearchBar</code> component. It also shows the example of <code>customComponent</code> props. By clicking on the <code>Change Search Result</code> button, it will use the custom search result component to display each result.
 
 Here, the <code>customComponent</code> looks something like the following.
@@ -60,6 +62,16 @@ In the same way, you can retrieve any fields of the object by accessing it throu
 | `data`            | `Array`       | An array storing data. Each element needs to have `title` property. |
 | `onResultSelect`  | `Function`    | A function that will be called when search result was clicked.      |
 | `customComponent` | `Function`    | A component that can be used for the search results shown.          |
+
+* objects in <code>data</code> need to at least have a field <code>title</code> otherwise it will not be shown in the search result
+```javascript
+const data = [
+    {
+        title: "Hello",
+        // ... whatever other fields
+    }
+]
+```
 
 * <code>onResultSelect</code> needs to follow the following syntax to retrieve result
 
