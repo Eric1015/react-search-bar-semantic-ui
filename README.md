@@ -2,6 +2,8 @@
 
 A search bar component built based on Semantic UI React.
 
+日本語版は[こちら](docs/README_jp.md)
+
 ### Installation
 
 ```shell
