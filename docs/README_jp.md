@@ -14,7 +14,7 @@ npm install --save react-search-bar-semantic-ui
 import SearchBar from 'react-search-bar-semantic-ui';
 ```
 
-### Usage
+### 使用方法
 
 The following code is the basic usage of <code>SearchBar</code> component by assigning all the fields used in default search result component.
 下記のコードはデフォルトのサーチ結果コンポーネントのすべてのフィールドに値を与えた<code>SearchBar</code>コンポーネントの基本的な使用方法です。
