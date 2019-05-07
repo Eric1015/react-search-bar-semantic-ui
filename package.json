@@ -33,6 +33,10 @@
     "bugs": {
         "url": "https://github.com/Eric1015/react-search-bar-semantic-ui/issues"
     },
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/npm/cli.git"
+    },
     "devDependencies": {
         "babel-cli": "^6.24.1",
         "babel-core": "^6.24.1",
