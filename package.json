@@ -4,7 +4,7 @@
     "description": "This is a search bar component with built-in searching functions and make use of Semantic UI React for UI.",
     "main": "build/index.js",
     "peerDependencies": {
-        "react": "^15.5.4"
+        "react": "^16.8.6"
     },
     "dependencies": {
         "prop-types": "^15.7.2",
@@ -19,9 +19,19 @@
         "start": "webpack --watch",
         "build": "webpack"
     },
+    "keywords": [
+        "react",
+        "react-component",
+        "search",
+        "search-bar",
+        "semantic-ui"
+    ],
     "author": {
-        "name": "Boyi Yao",
-        "license": "MIT"
+        "name": "Boyi Yao"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Eric1015/react-search-bar-semantic-ui/issues"
     },
     "devDependencies": {
         "babel-cli": "^6.24.1",
