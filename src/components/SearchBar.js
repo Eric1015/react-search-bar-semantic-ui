@@ -49,7 +49,7 @@ class SearchBar extends React.Component {
         let results = [];
         value = value.split(" ").join("");
         if (value.length !== 0) {
-            let key = value.substring(0, 1);
+            let key = value.charAt(0).toLowerCase();
             let items = this.state.data.hasOwnProperty(key)? this.state.data[key] : this.state.data["other"];
             for (let item of items) {
                 let currIndex = 0;
@@ -116,7 +116,7 @@ class SearchBar extends React.Component {
             other: []
         };
         for (let elem of this.props.data) {
-            let key = elem.title.substring(0, 1);
+            let key = elem.title.charAt(0).toLowerCase();
             result.hasOwnProperty(key)? result[key].push(elem) : result["other"].push(elem);
         }
         this.setState({data: result});
@@ -145,7 +145,7 @@ class SearchBar extends React.Component {
 SearchBar.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string.isRequired})).isRequired,
     onResultSelect: PropTypes.func.isRequired,
-    customComponent: PropTypes.object.isRequired
+    customComponent: PropTypes.func.isRequired
 }
 
 export default SearchBar;

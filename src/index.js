@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Image} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import SearchBar from './components/SearchBar';
@@ -20,7 +21,7 @@ const Result = (props) => {
             <div>
                 {image &&
                 <div key='image' className='image'>
-                    {createHTMLImage(image, { autoGenerateKey: false })}
+                    <Image src={image} size="tiny" />
                 </div>
                 }
                 <div key='content' className='content'>
@@ -35,7 +36,7 @@ const Result = (props) => {
 SearchBarContainer.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string.isRequired})),
     onResultSelect: PropTypes.func,
-    customComponent: PropTypes.object
+    customComponent: PropTypes.func
 }
 
 export default SearchBarContainer;
